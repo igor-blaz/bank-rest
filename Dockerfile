@@ -1,4 +1,17 @@
-FROM ubuntu:latest
-LABEL authors="igor"
+FROM maven:3.9.9-eclipse-temurin-17 AS build
 
-ENTRYPOINT ["top", "-b"]
+WORKDIR /app
+
+COPY pom.xml .
+RUN mvn dependency:go-offline
+
+COPY src ./src
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-jre
+
+WORKDIR /app
+
+COPY --from=build /app/target/bank-rest-1.0.0.jar app.jar
+
+ENTRYPOINT ["java", "-jar", "app.jar"]
