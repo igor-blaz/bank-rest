@@ -1,4 +1,4 @@
-package com.example.bankcards.dto;
+package com.example.bankcards.dto.request;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
@@ -15,4 +15,7 @@ public class UserCreateRequest {
     @Min(18)
     @Max(120)
     Integer age;
+    @NotBlank
+    @Size(min = 6, max = 100)
+    private String password;
 }

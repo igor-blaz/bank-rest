@@ -28,4 +28,8 @@ spring:
 
 logging:
   level:
-    liquibase: DEBUG
+    liquibase: debug
+
+jwt:
+  secret: 12345678901234567890123456789012
+  expiration: 86400000

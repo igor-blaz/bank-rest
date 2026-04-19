@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-users-table
+      author: igor
+      changes:
+        - createTable:
+            tableName: user_requests
+            columns:
+              - column:
+                  name: id
+                  type: BIGSERIAL
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+
+              - column:
+                  name: name
+                  type: VARCHAR(250)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: surname
+                  type: VARCHAR(250)
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: age
+                  type: INT
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: status
+                  type: VARCHAR(8)
+                  constraints:
+                    nullable: false

@@ -1,6 +1,5 @@
-package com.example.bankcards.dto;
+package com.example.bankcards.dto.request;
 
-import com.example.bankcards.enums.CardStatus;
 import com.example.bankcards.enums.ChangeCardRequest;
 import lombok.Builder;
 import lombok.Data;

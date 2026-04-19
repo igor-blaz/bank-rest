@@ -1,8 +1,7 @@
 package com.example.bankcards.service;
 
-import com.example.bankcards.dto.UserCreateRequest;
 import com.example.bankcards.dto.UserDto;
-import com.example.bankcards.dto.UserResponse;
+import com.example.bankcards.dto.response.UserResponse;
 import com.example.bankcards.entity.User;
 import com.example.bankcards.repository.UserRepository;
 import com.example.bankcards.util.UserMapper;

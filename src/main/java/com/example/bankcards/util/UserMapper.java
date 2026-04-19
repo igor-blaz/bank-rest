@@ -1,8 +1,8 @@
 package com.example.bankcards.util;
 
-import com.example.bankcards.dto.UserCreateRequest;
+import com.example.bankcards.dto.request.UserCreateRequest;
 import com.example.bankcards.dto.UserDto;
-import com.example.bankcards.dto.UserResponse;
+import com.example.bankcards.dto.response.UserResponse;
 import com.example.bankcards.entity.User;
 import com.example.bankcards.enums.Role;
 import lombok.experimental.UtilityClass;

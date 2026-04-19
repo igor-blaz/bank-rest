@@ -1,7 +1,7 @@
-package com.example.bankcards.controller.admin;
+package com.example.bankcards.controller.user;
 
-import com.example.bankcards.dto.UserCreateRequest;
-import com.example.bankcards.dto.UserResponse;
+import com.example.bankcards.dto.request.UserCreateRequest;
+import com.example.bankcards.dto.response.UserResponse;
 import com.example.bankcards.service.UserService;
 import com.example.bankcards.util.UserMapper;
 import jakarta.validation.Valid;
@@ -12,15 +12,16 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping(path = "/admin/users")
+@RequestMapping(path = "/public/users")
 @RequiredArgsConstructor
-public class UserController {
+public class UserPublicController {
     private final UserService userService;
 
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public UserResponse createUser(@Valid @RequestBody UserCreateRequest createRequest) {
+    public UserResponse createUserRequest(@Valid @RequestBody UserCreateRequest createRequest) {
         return userService.createUser(UserMapper.toUserDto(createRequest));
     }
+
 }

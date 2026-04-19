@@ -1,6 +1,7 @@
 package com.example.bankcards.entity;
 
 import com.example.bankcards.enums.Role;
+import com.example.bankcards.enums.UserRequestStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,15 +10,19 @@ import lombok.*;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Table(name = "users")
-public class User {
+@Table(name = "user_requests")
+public class UserCreationRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String surname;
     private Integer age;
-    @Enumerated(EnumType.STRING)
-    private Role role;
     private String password;
+    @Column(name = "status")
+    @Setter
+    @Enumerated(EnumType.STRING)
+    private UserRequestStatus userRequestStatus;
+
+
 }

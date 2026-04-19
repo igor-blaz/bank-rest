@@ -1,7 +1,7 @@
 package com.example.bankcards.controller.admin;
 
-import com.example.bankcards.dto.UserCreateRequest;
-import com.example.bankcards.dto.UserResponse;
+import com.example.bankcards.dto.request.UserCreateRequest;
+import com.example.bankcards.dto.response.UserResponse;
 import com.example.bankcards.service.CardService;
 import com.example.bankcards.util.UserMapper;
 import jakarta.validation.Valid;
