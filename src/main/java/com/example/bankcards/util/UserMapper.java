@@ -6,8 +6,12 @@ import com.example.bankcards.dto.response.UserResponse;
 import com.example.bankcards.entity.User;
 import com.example.bankcards.enums.Role;
 import lombok.experimental.UtilityClass;
+import lombok.extern.slf4j.Slf4j;
+
+import java.util.List;
 
 @UtilityClass
+@Slf4j
 public class UserMapper {
     public static UserDto toUserDto(UserCreateRequest request){
         return UserDto.builder()
@@ -17,6 +21,9 @@ public class UserMapper {
                 .role(Role.USER)
                 .build();
 
+    }
+    public List<UserResponse> toResponseList(List<User> entities){
+        return entities.stream().map(UserMapper::toResponse).toList();
     }
     public UserResponse toResponse(User user) {
         return UserResponse.builder()

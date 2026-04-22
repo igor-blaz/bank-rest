@@ -1,7 +1,6 @@
 package com.example.bankcards.entity;
 
-import com.example.bankcards.enums.Role;
-import com.example.bankcards.enums.UserRequestStatus;
+import com.example.bankcards.enums.RequestStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,11 +17,12 @@ public class UserCreationRequest {
     private String name;
     private String surname;
     private Integer age;
+    @Column(name = "password_hash")
     private String password;
     @Column(name = "status")
     @Setter
     @Enumerated(EnumType.STRING)
-    private UserRequestStatus userRequestStatus;
+    private RequestStatus userRequestStatus;
 
 
 }

@@ -16,6 +16,6 @@ public class UserCreateRequest {
     @Max(120)
     Integer age;
     @NotBlank
-    @Size(min = 6, max = 100)
+    @Size(min = 6, max = 255)
     private String password;
 }

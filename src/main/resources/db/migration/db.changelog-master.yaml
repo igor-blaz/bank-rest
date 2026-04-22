@@ -5,3 +5,18 @@ databaseChangeLog:
   - include:
       file: 002-create-cards.yaml
       relativeToChangelogFile: true
+  - include:
+      file: 003-add-password-to-user.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 004-create-user-create-request.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 005-create-card-request.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 006-insert-admin-user.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: 007-create-transactions.yaml
+      relativeToChangelogFile: true

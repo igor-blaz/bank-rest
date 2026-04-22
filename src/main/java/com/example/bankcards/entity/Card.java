@@ -28,6 +28,23 @@ public class Card {
     @Column(nullable = false)
     private BigDecimal balance;
 
+    public void markExpired() {
+        if (this.cardStatus != CardStatus.EXPIRED) {
+            this.cardStatus = CardStatus.EXPIRED;
+        }
+    }
+    public void markBlocked() {
+        if (this.cardStatus != CardStatus.BLOCKED) {
+            this.cardStatus = CardStatus.BLOCKED;
+        }
+    }
+    public void increaseBalance(BigDecimal amount) {
+        this.balance = this.balance.subtract(amount);
+    }
+
+    public void decreaseBalance(BigDecimal amount) {
+        this.balance = this.balance.add(amount);
+    }
     public String getMaskedNumber() {
         return "**** **** **** " + cardNumber.substring(cardNumber.length() - 4);
     }

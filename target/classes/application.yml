@@ -28,8 +28,21 @@ spring:
 
 logging:
   level:
-    liquibase: debug
+    root: warn
+    com.example.bankcards: info
+    org.springframework: warn
+    org.hibernate: warn
+    org.apache: warn
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: mappings
 
 jwt:
   secret: 12345678901234567890123456789012
   expiration: 86400000
+
+card:
+  default-balance: 1000

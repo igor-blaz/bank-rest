@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: create-users-table
+      id: create-user-requests-table
       author: igor
       changes:
         - createTable:
@@ -32,7 +32,13 @@ databaseChangeLog:
                     nullable: false
 
               - column:
+                  name: password_hash
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+              - column:
                   name: status
-                  type: VARCHAR(8)
+                  type: VARCHAR(10)
                   constraints:
                     nullable: false
