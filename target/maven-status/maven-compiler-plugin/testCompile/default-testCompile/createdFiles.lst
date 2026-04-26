@@ -14,10 +14,8 @@ com/example/bankcards/service/UserServiceTest.class
 com/example/bankcards/factory/card/CardTestFactory.class
 com/example/bankcards/controller/AuthControllerTest$TestConfig.class
 com/example/bankcards/factory/response/RequestResponseTestFactory.class
-com/example/bankcards/factory/payment/PaymentTestFactory.class
 com/example/bankcards/controller/user/UserRequestPublicControllerTest$TestConfig.class
 com/example/bankcards/controller/admin/CardRequestAdminControllerTest$TestConfig.class
-com/example/bankcards/factory/user/CardTestFactory.class
 com/example/bankcards/factory/request/CardCreationRequestTestFactory.class
 com/example/bankcards/controller/admin/UserRequestAdminControllerTest.class
 com/example/bankcards/controller/user/CardRequestPublicControllerTest$TestConfig.class

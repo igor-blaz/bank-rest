@@ -1,7 +1,5 @@
 package com.example.bankcards.util;
 
-import com.example.bankcards.dto.UserDto;
-import com.example.bankcards.dto.request.UserCreateRequest;
 import com.example.bankcards.dto.response.UserResponse;
 import com.example.bankcards.entity.User;
 import com.example.bankcards.entity.UserCreationRequest;
@@ -14,21 +12,12 @@ import java.util.List;
 @UtilityClass
 @Slf4j
 public class UserMapper {
-    public static UserDto toUserDto(UserCreateRequest request) {
-        return UserDto.builder()
-                .name(request.getName())
-                .surname(request.getSurname())
-                .age(request.getAge())
-                .role(Role.USER)
-                .build();
-
-    }
-
     public User toEntity(UserCreationRequest request) {
         return User.builder()
                 .name(request.getName())
                 .surname(request.getSurname())
                 .age(request.getAge())
+                .email(request.getEmail())
                 .role(Role.USER)
                 .password(request.getPassword())
                 .build();

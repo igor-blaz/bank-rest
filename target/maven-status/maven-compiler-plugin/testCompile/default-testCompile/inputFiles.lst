@@ -9,13 +9,11 @@
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/controller/user/PaymentPublicControllerTest.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/controller/user/UserRequestPublicControllerTest.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/card/CardTestFactory.java
-/home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/payment/PaymentTestFactory.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/request/CardCreationRequestTestFactory.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/request/UserCreationRequestTestFactory.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/response/CardResponseTestFactory.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/response/RequestResponseTestFactory.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/response/UserResponseTestFactory.java
-/home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/user/CardTestFactory.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/factory/user/UserTestFactory.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/service/AuthServiceTest.java
 /home/igor/Projects/bank_rest/src/test/java/com/example/bankcards/service/CardRequestServiceTest.java
