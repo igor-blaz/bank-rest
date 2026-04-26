@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-default-users
+      author: igor
+      changes:
+        - insert:
+            tableName: users
+            columns:
+              - column:
+                  name: name
+                  value: user
+              - column:
+                  name: surname
+                  value: user
+              - column:
+                  name: email
+                  value: user@mail.com
+              - column:
+                  name: age
+                  valueNumeric: 25
+              - column:
+                  name: password
+                  value: "$2a$10$Hngy3wGw2HpVJOBkr6uwxu7MphRIzt2lJY9WMgf1SPMUW/veps8I."
+              - column:
+                  name: role
+                  value: USER

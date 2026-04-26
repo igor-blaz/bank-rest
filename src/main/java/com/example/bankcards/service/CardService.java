@@ -80,6 +80,7 @@ public class CardService {
                 .balance(BigDecimal.valueOf(defaultBalance))
                 .expirationDate(LocalDate.now().plusYears(4))
                 .build();
+        cardRepository.save(card);
         return CardMapper.toResponse(card);
     }
 

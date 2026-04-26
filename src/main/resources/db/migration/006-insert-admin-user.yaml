@@ -13,6 +13,9 @@ databaseChangeLog:
                   name: surname
                   value: admin
               - column:
+                  name: email
+                  value: "admin@gmail.com"
+              - column:
                   name: age
                   valueNumeric: 23
               - column:

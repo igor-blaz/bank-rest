@@ -26,6 +26,12 @@ databaseChangeLog:
                     nullable: false
 
               - column:
+                  name: email
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+
+              - column:
                   name: age
                   type: INT
                   constraints:

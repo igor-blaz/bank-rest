@@ -8,15 +8,27 @@ import com.example.bankcards.entity.UserCreationRequest;
 import com.example.bankcards.enums.RequestStatus;
 import lombok.experimental.UtilityClass;
 
+import java.util.List;
+
 @UtilityClass
 public class RequestMapper {
     public UserCreationRequest toEntity(UserCreateRequest dto) {
         return UserCreationRequest.builder()
                 .name(dto.getName())
                 .surname(dto.getSurname())
+                .email(dto.getEmail())
                 .age(dto.getAge())
+                .userRequestStatus(RequestStatus.PENDING)
                 .password(dto.getPassword())
                 .build();
+    }
+
+    public List<RequestResponse> toCardResponseList(List<CardCreationRequest> entities) {
+        return entities.stream().map(RequestMapper::toResponse).toList();
+    }
+
+    public List<RequestResponse> toUserResponseList(List<UserCreationRequest> entities) {
+        return entities.stream().map(RequestMapper::toResponse).toList();
     }
 
     public RequestResponse toResponse(UserCreationRequest entity) {

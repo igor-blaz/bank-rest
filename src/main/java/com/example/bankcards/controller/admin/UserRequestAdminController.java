@@ -1,6 +1,7 @@
 package com.example.bankcards.controller.admin;
 
-import com.example.bankcards.dto.response.CardResponse;
+import com.example.bankcards.dto.response.RequestResponse;
+import com.example.bankcards.dto.response.UserResponse;
 import com.example.bankcards.service.UserRequestService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,18 +18,26 @@ public class UserRequestAdminController {
     private final UserRequestService userRequestService;
 
     @PostMapping("/{requestId}/approve")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void approveUserRequest(@PathVariable Long requestId) {
-        userRequestService.approveRequest(requestId);
+    public UserResponse approveUserRequest(@PathVariable Long requestId) {
+        return userRequestService.approveRequest(requestId);
     }
 
     @PostMapping("/{requestId}/reject")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void rejectUserRequest(@PathVariable Long requestId) {
         userRequestService.rejectRequest(requestId);
+
     }
 
+    @GetMapping
+    public List<RequestResponse> getAllResponses() {
+        return userRequestService.getAllRequests();
+    }
 
+    @GetMapping("/{requestId}")
+    public RequestResponse getResponseById(@PathVariable Long requestId) {
+        return userRequestService.getRequestById(requestId);
+    }
 
 
 }

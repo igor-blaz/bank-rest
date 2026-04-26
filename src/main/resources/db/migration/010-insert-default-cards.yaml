@@ -1,0 +1,61 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert-default-cards
+      author: igor
+      changes:
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_number
+                  value: "1234567812340001"
+              - column:
+                  name: user_id
+                  valueNumeric: 1
+              - column:
+                  name: expiration_date
+                  valueDate: 2028-12-31
+              - column:
+                  name: card_status
+                  value: ACTIVE
+              - column:
+                  name: balance
+                  valueNumeric: 1000
+
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_number
+                  value: "1234567812340002"
+              - column:
+                  name: user_id
+                  valueNumeric: 1
+              - column:
+                  name: expiration_date
+                  valueDate: 2027-06-30
+              - column:
+                  name: card_status
+                  value: BLOCKED
+              - column:
+                  name: balance
+                  valueNumeric: 500
+        - insert:
+            tableName: cards
+            columns:
+              - column:
+                  name: card_number
+                  value: "1234567812349999"
+              - column:
+                  name: user_id
+                  valueNumeric: 2
+              - column:
+                  name: expiration_date
+                  valueDate: 2029-01-01
+              - column:
+                  name: card_status
+                  value: ACTIVE
+              - column:
+                  name: balance
+                  valueNumeric: 100000
+

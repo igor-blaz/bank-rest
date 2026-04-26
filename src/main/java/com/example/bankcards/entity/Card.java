@@ -38,11 +38,11 @@ public class Card {
             this.cardStatus = CardStatus.BLOCKED;
         }
     }
-    public void increaseBalance(BigDecimal amount) {
+    public void decreaseBalance(BigDecimal amount) {
         this.balance = this.balance.subtract(amount);
     }
 
-    public void decreaseBalance(BigDecimal amount) {
+    public void increaseBalance(BigDecimal amount) {
         this.balance = this.balance.add(amount);
     }
     public String getMaskedNumber() {

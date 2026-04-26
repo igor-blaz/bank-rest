@@ -12,10 +12,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Builder
 public class CardResponse {
-    String maskedCardNumber;
-    LocalDate expirationDate;
-    BigDecimal balance;
-    String ownerName;
-    String ownerSurname;
-    CardStatus cardStatus;
+    private String maskedCardNumber;
+    private LocalDate expirationDate;
+    private BigDecimal balance;
+    private String ownerName;
+    private String ownerSurname;
+    private CardStatus cardStatus;
 }

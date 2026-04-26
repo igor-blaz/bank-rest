@@ -1,7 +1,6 @@
 package com.example.bankcards.dto;
 
 import com.example.bankcards.enums.Role;
-import jakarta.validation.constraints.*;
 import lombok.Builder;
 import lombok.Data;
 

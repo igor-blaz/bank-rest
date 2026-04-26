@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping(path = "/admin/cards")
 @RequiredArgsConstructor
 public class CardAdminController {
-    private CardService cardService;
+    private final CardService cardService;
 
 
     @GetMapping

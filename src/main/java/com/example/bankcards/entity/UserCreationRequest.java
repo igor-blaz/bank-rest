@@ -16,6 +16,7 @@ public class UserCreationRequest {
     private Long id;
     private String name;
     private String surname;
+    private String email;
     private Integer age;
     @Column(name = "password_hash")
     private String password;
@@ -23,6 +24,4 @@ public class UserCreationRequest {
     @Setter
     @Enumerated(EnumType.STRING)
     private RequestStatus userRequestStatus;
-
-
 }

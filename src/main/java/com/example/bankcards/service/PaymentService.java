@@ -51,6 +51,9 @@ public class PaymentService {
         if (!senderCard.getOwner().getId().equals(currentUserId)) {
             throw new CardOwnershipException("Cards do not belong to current user");
         }
+        if (senderCard.getId().equals(receiverCard.getId())) {
+            throw new CardOwnershipException("This is the same card");
+        }
     }
 
     private void validateEnoughFunds(Card senderCard, BigDecimal amount) {

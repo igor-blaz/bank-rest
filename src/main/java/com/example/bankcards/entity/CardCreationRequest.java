@@ -3,7 +3,6 @@ package com.example.bankcards.entity;
 import com.example.bankcards.enums.RequestStatus;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.annotation.Id;
 
 @Getter
 @Builder

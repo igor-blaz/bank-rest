@@ -28,11 +28,11 @@ spring:
 
 logging:
   level:
-    root: warn
+    root: info
     com.example.bankcards: info
-    org.springframework: warn
+    org.springframework: info
     org.hibernate: warn
-    org.apache: warn
+    org.apache: info
 
 management:
   endpoints:

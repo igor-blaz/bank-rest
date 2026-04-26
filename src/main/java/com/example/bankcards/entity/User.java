@@ -16,6 +16,8 @@ public class User {
     private Long id;
     private String name;
     private String surname;
+    @Column(unique = true, nullable = false)
+    private String email;
     private Integer age;
     @Enumerated(EnumType.STRING)
     private Role role;

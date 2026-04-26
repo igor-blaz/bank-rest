@@ -1,8 +1,9 @@
 package com.example.bankcards.service;
 
-import com.example.bankcards.dto.response.AuthResponse;
 import com.example.bankcards.dto.request.LoginRequest;
+import com.example.bankcards.dto.response.AuthResponse;
 import com.example.bankcards.entity.User;
+import com.example.bankcards.exception.NotFoundException;
 import com.example.bankcards.repository.UserRepository;
 import com.example.bankcards.security.CustomUserDetails;
 import com.example.bankcards.security.JwtService;
@@ -20,8 +21,8 @@ public class AuthService {
     private final JwtService jwtService;
 
     public AuthResponse login(LoginRequest request) {
-        User user = userRepository.findByName(request.getName())
-                .orElseThrow(() -> new BadCredentialsException("Invalid username or password"));
+        User user = userRepository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new NotFoundException("Invalid username or password"));
 
         if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
             throw new BadCredentialsException("Invalid username or password");
