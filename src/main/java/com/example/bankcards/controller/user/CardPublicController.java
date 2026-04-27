@@ -30,7 +30,7 @@ public class CardPublicController {
     }
 
     @GetMapping("/{cardId}")
-    public List<CardResponse> getMyCardById(@PathVariable Long cardId) {
+    public CardResponse getMyCardById(@PathVariable Long cardId) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         CustomUserDetails userDetails = (CustomUserDetails) auth.getPrincipal();
         Long userId = userDetails.getId();

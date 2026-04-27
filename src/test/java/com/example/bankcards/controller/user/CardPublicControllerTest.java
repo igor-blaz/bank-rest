@@ -79,17 +79,22 @@ class CardPublicControllerTest {
     }
 
     @Test
-    void getMyCardById_shouldReturnList() throws Exception {
+    void getMyCardById_shouldReturnCard() throws Exception {
         setAuth(5L);
 
-        List<CardResponse> list =
-                CardResponseTestFactory.makeListCardResponse(1);
+        CardResponse response =
+                CardResponseTestFactory.makeCardResponse();
 
-        when(cardService.getUserCardsByCardId(5L, 10L)).thenReturn(list);
+        when(cardService.getUserCardsByCardId(5L, 10L)).thenReturn(response);
+
 
         mockMvc.perform(get("/public/cards/{cardId}", 10L))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(1)));
+                .andExpect(jsonPath("$.maskedCardNumber").value(response.getMaskedCardNumber()))
+                .andExpect(jsonPath("$.balance").value(response.getBalance().doubleValue()))
+                .andExpect(jsonPath("$.ownerName").value(response.getOwnerName()))
+                .andExpect(jsonPath("$.ownerSurname").value(response.getOwnerSurname()))
+                .andExpect(jsonPath("$.cardStatus").value(response.getCardStatus().toString()));
 
         verify(cardService).getUserCardsByCardId(5L, 10L);
     }

@@ -4,6 +4,8 @@ import com.example.bankcards.dto.response.CardResponse;
 import com.example.bankcards.entity.Card;
 import com.example.bankcards.entity.CardCreationRequest;
 import com.example.bankcards.entity.User;
+import com.example.bankcards.enums.CardStatus;
+import com.example.bankcards.exception.CardOwnershipException;
 import com.example.bankcards.exception.NotFoundException;
 import com.example.bankcards.repository.CardCreationRepository;
 import com.example.bankcards.repository.CardRepository;
@@ -36,9 +38,13 @@ public class CardService {
         return CardMapper.toResponseList(entityList);
     }
 
-    public List<CardResponse> getUserCardsByCardId(Long userId, Long cardId) {
-        List<Card> entityList = cardRepository.findAllByOwnerIdAndId(userId, cardId);
-        return CardMapper.toResponseList(entityList);
+    public CardResponse getUserCardsByCardId(Long userId, Long cardId) {
+        Card card = cardRepository.findById(cardId)
+                .orElseThrow(() -> new NotFoundException("card id " + cardId + " not found"));
+        if(!card.getOwner().getId().equals(userId)){
+            throw new CardOwnershipException("this card in sot belong to current user");
+        }
+        return CardMapper.toResponse(card);
     }
 
     public List<CardResponse> getAllCards() {
@@ -78,26 +84,11 @@ public class CardService {
                 .cardNumber(cardNumberGenerator.makeNumber())
                 .owner(user)
                 .balance(BigDecimal.valueOf(defaultBalance))
+                .cardStatus(CardStatus.ACTIVE)
                 .expirationDate(LocalDate.now().plusYears(4))
                 .build();
         cardRepository.save(card);
         return CardMapper.toResponse(card);
     }
 
-
-    private void expirationDateListCheck(List<Card> cards) {
-        LocalDate now = LocalDate.now();
-        for (Card card : cards) {
-            if (card.getExpirationDate().isBefore(now)) {
-                card.markExpired();
-            }
-        }
-    }
-
-    private void expirationDateCheck(Card card) {
-        if (card.getExpirationDate().isBefore(LocalDate.now())) {
-            card.markExpired();
-        }
-
-    }
 }
